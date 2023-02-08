@@ -15,7 +15,8 @@ var highScores = [{
 }]
 
 function play(question, list, answer) {
-  var userAnswer = readlineSync.keyInSelect(list, question);
+  console.log(question);
+  var userAnswer = readlineSync.keyInSelect(list, 'Your Answer - ');
   console.log("\n");
   if (list[userAnswer] === answer) {
     console.log("Right!");
@@ -27,25 +28,25 @@ function play(question, list, answer) {
 }
 
 var questions = [{
-  array: ["Dress", "Watermelon", "Guava", "Signal"],
   question: "1.You go at red, but stop at green. What am I? ",
-  answer: "Watermelon"
+  answer: "Watermelon",
+  array: ["Dress", "Watermelon", "Guava", "Signal"]
 },{
-  array: ["Ego", "Shadow", "Candle", "Happiness"],
   question: "2.I’m tall when I’m young, and I’m short when I’m old. What am I? ",
-  answer: "Candle"
+  answer: "Candle",
+  array: ["Ego", "Shadow", "Candle", "Happiness"]
 },{
-  array: ["Monkey", "Cow", "Bird", "Coin"],
   question: "3.I have a head and a tail that will never meet. Having too many of me is always a treat. What am I? ",
-  answer: "Coin"
+  answer: "Coin",
+  array: ["Monkey", "Cow", "Bird", "Coin"]
 },{
-  array: ["Dress", "Skin", "Age", "Soap"],
   question: "4.I help you from your head to your toe. The more I work, the smaller I grow. What am I? ",
-  answer: "Soap"
+  answer: "Soap",
+  array: ["Dress", "Skin", "Age", "Soap"]
 },{
-  array: ["Bird", "Plane", "Clouds", "Rain"],
   question: "5.I can fly but have no wings. I can cry but I have no eyes. Wherever I go, darkness follows me. What am I? ",
-  answer: "Clouds"
+  answer: "Clouds",
+  array: ["Bird", "Plane", "Clouds", "Rain"]
 }]
 
 for (var i=0; i<questions.length; i++) {
