@@ -1,11 +1,9 @@
+// Neogcamp mark-one exercise : Brain-riddles quiz
+
 var readlineSync = require('readline-sync');
 var score = 0;
 
-var userName = readlineSync.question("What's your name? \n");
-console.log("Welcome to Brain Riddles " + userName + "!");
-console.log("Let's start!");
-console.log("---------");
-
+// array of high score objects
 var highScores = [{
   name: "Nitasha",
   score: 4
@@ -14,19 +12,7 @@ var highScores = [{
   score: 3
 }]
 
-function play(question, list, answer) {
-  console.log(question);
-  var userAnswer = readlineSync.keyInSelect(list, 'Your Answer - ');
-  console.log("\n");
-  if (list[userAnswer] === answer) {
-    console.log("Right!");
-    score = score + 1;
-  } else {
-    console.log("Wrong!");
-  }
-  console.log("Your Score:" + score);
-}
-
+// array of all questions objects
 var questions = [{
   question: "1.You go at red, but stop at green. What am I? ",
   answer: "Watermelon",
@@ -49,18 +35,51 @@ var questions = [{
   array: ["Bird", "Plane", "Clouds", "Rain"]
 }]
 
+// welcome message
+console.log("--------- BRAIN RIDDLES ---------");
+console.log("\n");
+var userName = readlineSync.question("What's your name? \n");
+console.log("Welcome to Brain Riddles " + userName + "!");
+console.log("\n");
+console.log("--------- GUIDELINES FOR QUIZ ---------");
+console.log("\n");
+console.log("There are 5 riddles in this quiz. Each riddle has 4 options.");
+console.log("Enter 1,2,3 or 4 as right answer and then press Enter.");
+console.log("Type your answer and then press Enter key.");
+console.log("\n");
+console.log("--------- Let's start! ---------");
+console.log("\n");
+
+// defining function play
+function play(question, list, answer) {
+  console.log(question);
+  var userAnswer = readlineSync.keyInSelect(list, 'Your Answer - ');
+  console.log("\n");
+  if (list[userAnswer] === answer) {
+    console.log("Right!");
+    score = score + 1;
+  } else {
+    console.log("Wrong!");
+  }
+  console.log("Your Score:" + score);
+}
+
+// calling function play
 for (var i=0; i<questions.length; i++) {
   var currentQuestion = questions[i];
   play(currentQuestion.question, currentQuestion.array, currentQuestion.answer);
   console.log("\n");
   console.log("Right answer:" + questions[i].answer);
   console.log("---------");
+  console.log("\n");
 }
 
+// total score
 console.log("Yay! Your total score is " + score);
 console.log("Send me the screenshot of your scores.")
 console.log("---------");
 
+// high score
 if (score>=highScores[0].score) {
   console.log("Congratulations! You made a new high score");
 } else {
